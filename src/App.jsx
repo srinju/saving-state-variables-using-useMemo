@@ -9,11 +9,11 @@ function App() { //we use usememo so that the re rendering again dosent happen w
   
 
   let count = useMemo(() => { //this stops the re-rendering  when the counter button is clicked and only works when the inputValue changes and therefore that is the work of sideHOoks
-    let count = 0 ;
+    let finalCount = 0 ;
     for(let i = 0 ; i <= inputValue ; i++){
-      count = count + i;
+      finalCount = finalCount + i;
     }
-    return count;
+    return finalCount;
   } , [inputValue]);
 
   return <div>
