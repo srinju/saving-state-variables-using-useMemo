@@ -6,6 +6,7 @@ function App() { //we use usememo so that the re rendering again dosent happen w
 
   const [counter,setCounter] = useState(0);
   const [inputValue,setInputValues] = useState(1);
+  //const [finalValue,setFinalValue] = useState(0);
   
 
   let count = useMemo(() => { //this stops the re-rendering  when the counter button is clicked and only works when the inputValue changes and therefore that is the work of sideHOoks
@@ -15,6 +16,14 @@ function App() { //we use usememo so that the re rendering again dosent happen w
     }
     return finalCount;
   } , [inputValue]);
+
+  //useEffect(() => { //this is another approach which causes two re renders but it is acceptable , we have to understand the useEffect() only very nicely bcoz it is the most used and useMemo is not used a lot
+    //let count = 0;
+    //for(let i = 0 ; i <=inputValue ; i++){
+      //count = count+ i;
+    //}
+    //setFinalValue(count)
+  //},[inputValue])
 
   return <div>
     <input onChange={(e) => {
